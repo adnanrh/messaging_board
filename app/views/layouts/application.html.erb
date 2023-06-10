@@ -11,6 +11,12 @@
   </head>
 
   <body>
+    <% if current_user %> 
+      <div> Welcome <%= "#{current_user.first_name} #{current_user.last_name}".strip %> </div> 
+        <%= button_to "Sign out", destroy_user_session_path, method: :delete %> 
+    <% end %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>
