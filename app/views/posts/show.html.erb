@@ -3,3 +3,21 @@
 <h4>Published on <%= @post.timestamp %>
 <br><br>
 <h2><%= @post.body %></h2>
+
+<h2>Comments</h2>
+<% @post.comments.each do |comment| %>
+  <p>
+    <strong><%= comment.user.full_name %></strong> <%= comment.timestamp %>
+  </p>
+  <p> <%= comment.body %> </p>
+<% end %>
+
+<%= form_with model: [ @post, @post.comments.build ] do |form| %>
+  <p>
+    <%= form.text_area :body, placeholder: 'Add a comment...' %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
