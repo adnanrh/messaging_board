@@ -14,7 +14,7 @@ RSpec.describe 'Creating posts', type: :feature do
     fill_in 'Title', with: 'Best Post'
     fill_in 'Body', with: 'Great Body'
     click_button 'Create Post'
-    assert_current_path('/posts/1')
+    assert_current_path("/posts/#{Post.last.id}")
     expect(page).to have_content('Best Post')
     expect(page).to have_content('By Person Dude')
     expect(page).to have_content('Published on 2023-06-11 15:30')

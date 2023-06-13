@@ -20,9 +20,9 @@ RSpec.describe 'Viewing posts', type: :feature do
     expect(links[0].text).to eq('New Post')
     expect(links[0][:href]).to eq('/posts/new')
     expect(links[1].text).to eq('Post 2')
-    expect(links[1][:href]).to eq('/posts/2')
+    expect(links[1][:href]).to eq("/posts/#{post2.id}")
     expect(links[2].text).to eq('Post 1')
-    expect(links[2][:href]).to eq('/posts/1')
+    expect(links[2][:href]).to eq("/posts/#{post1.id}")
   end
 
   scenario 'viewing a single post' do
