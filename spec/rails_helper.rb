@@ -33,6 +33,9 @@ RSpec.configure do |config|
   # factory_bot
   config.include FactoryBot::Syntax::Methods
 
+  # device feature spec helper
+  config.include Devise::Test::IntegrationHelpers, type: :feature
+
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 

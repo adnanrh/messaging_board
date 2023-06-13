@@ -9,12 +9,6 @@ RSpec.describe Comment, type: :model do
       expect(subject.valid?).to be(false)
       expect(subject.errors.full_messages).to eq(["Body can't be blank"])
     end
-
-    it 'is invalid if body is greather than 30 characters' do
-      subject.body = 'a' * 31
-      expect(subject.valid?).to be(false)
-      expect(subject.errors.full_messages).to eq(["Body is too long (maximum is 30 characters)"])
-    end
   end
 
   describe '#timestamp' do

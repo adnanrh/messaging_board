@@ -4,6 +4,7 @@
 <br><br>
 <h2><%= @post.body %></h2>
 
+<div id="comments_section">
 <h2>Comments</h2>
 <% @post.comments.each do |comment| %>
   <p>
@@ -11,10 +12,11 @@
   </p>
   <p> <%= comment.body %> </p>
 <% end %>
+</div>
 
 <%= form_with model: [ @post, @post.comments.build ] do |form| %>
   <p>
-    <%= form.text_area :body, placeholder: 'Add a comment...' %>
+    <%= form.text_area :body, placeholder: 'Add a comment...', maxlength: 30 %>
   </p>
   <p>
     <%= form.submit %>
